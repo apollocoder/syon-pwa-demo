@@ -4,7 +4,7 @@ export const PaymentButton = () => {
   const [paymentResponse, setPaymentResponse] = useState<PaymentResponse>()
 
   const onCardClick = async () => {
-    const request = new PaymentRequest([cardMethod], paymentDetails)
+    const request = new PaymentRequest([applePayMethod], paymentDetails)
     const response = await request.show()
     setPaymentResponse(response)
   }
@@ -17,21 +17,14 @@ export const PaymentButton = () => {
   )
 }
 
-// const applePayMethod = {
-//   supportedMethods: 'https://apple.com/apple-pay',
-//   data: {
-//     version: 3,
-//     merchantIdentifier: 'merchant.whatpwacando.today',
-//     merchantCapabilities: ['supports3DS', 'supportsCredit', 'supportsDebit'],
-//     supportedNetworks: ['amex', 'discover', 'masterCard', 'visa', 'maestro'],
-//     countryCode: 'US'
-//   }
-// }
-
-const cardMethod = {
-  supportedMethods: 'basic-card',
+const applePayMethod = {
+  supportedMethods: 'https://apple.com/apple-pay',
   data: {
-    supportedNetworks: ['visa', 'mastercard']
+    version: 3,
+    merchantIdentifier: 'merchant.whatpwacando.today',
+    merchantCapabilities: ['supports3DS', 'supportsCredit', 'supportsDebit'],
+    supportedNetworks: ['amex', 'discover', 'masterCard', 'visa', 'maestro'],
+    countryCode: 'US'
   }
 }
 
