@@ -11,7 +11,7 @@ export const PaymentButton = () => {
 
   return (
     <>
-      <button onClick={onCardClick}>Bezahlen</button>
+      <button onClick={onCardClick}>Apple Pay</button>
       {JSON.stringify(paymentResponse)}
     </>
   )
