@@ -10,17 +10,8 @@ function App() {
       registration &&
         setInterval(async () => {
           if (!(!registration.installing && navigator)) return
-
           if ('connection' in navigator && !navigator.onLine) return
-
-          const resp = await fetch(swUrl, {
-            cache: 'no-store',
-            headers: {
-              cache: 'no-store',
-              'cache-control': 'no-cache'
-            }
-          })
-
+          const resp = await fetch(swUrl)
           if (resp?.status === 200) await registration.update()
         }, intervalMS)
     }
