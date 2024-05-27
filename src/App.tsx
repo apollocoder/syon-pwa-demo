@@ -5,7 +5,11 @@ import { PaymentButton } from './components/ShareButton'
 const intervalMS = 10 * 1000
 
 function App() {
-  const { needRefresh, offlineReady, updateServiceWorker } = useRegisterSW({
+  const {
+    needRefresh: [needRefresh],
+    offlineReady: [offlineReady],
+    updateServiceWorker
+  } = useRegisterSW({
     onRegistered(registration) {
       registration &&
         setInterval(() => {
