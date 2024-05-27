@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import classes from './App.module.css'
+import { NotificationDisplay } from './components/NotificationDisplay'
 import { ScanButton } from './components/ScanButton'
 import { ShareButton } from './components/ShareButton'
 import runOneSignal from './one-signal'
@@ -16,6 +17,7 @@ function App() {
         <h1 className={classes.title}>SYON</h1>
         <h2 className={classes.subTitle}>PWA Demo</h2>
       </div>
+      <NotificationDisplay />
       <ShareButton />
       <ScanButton />
     </div>
