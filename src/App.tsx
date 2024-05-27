@@ -1,21 +1,11 @@
-import { registerSW } from 'virtual:pwa-register'
+import { useRegisterSW } from 'virtual:pwa-register/react'
 import classes from './App.module.css'
 import { PaymentButton } from './components/ShareButton'
-import { useState } from 'react'
 
 const intervalMS = 10 * 1000
 
 function App() {
-  const [offlineReady, setOfflineReady] = useState(false)
-  const [needRefresh, setNeedRefresh] = useState(false)
-
-  const update = registerSW({
-    onNeedRefresh() {
-      setNeedRefresh(true)
-    },
-    onOfflineReady() {
-      setOfflineReady(true)
-    },
+  const { needRefresh, offlineReady, updateServiceWorker } = useRegisterSW({
     onRegisteredSW(swUrl, registration) {
       registration &&
         setInterval(async () => {
@@ -40,7 +30,7 @@ function App() {
     <div className={classes.app}>
       <h1 className={classes.title}>SYON PWA Demo</h1>
       {needRefresh && (
-        <button className="button" onClick={() => update()}>
+        <button className="button" onClick={() => updateServiceWorker()}>
           Update App
         </button>
       )}
