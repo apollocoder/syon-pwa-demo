@@ -1,11 +1,19 @@
 export const PaymentButton = () => {
   const onButtonClick = async () => {
-    navigator.share({ text: 'Hello World!' })
+    navigator.share({
+      files: [
+        new File(['Hello, World!\nRegards, SYON'], 'hello-world.txt', {
+          type: 'text/plain'
+        })
+      ]
+    })
   }
 
   return (
     <>
-      <button onClick={onButtonClick}>Share</button>
+      <button className="button" onClick={onButtonClick}>
+        Share File
+      </button>
     </>
   )
 }
