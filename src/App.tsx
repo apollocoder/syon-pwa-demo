@@ -7,7 +7,6 @@ function App() {
   const [offlineReady, setOfflineReady] = useState(false)
 
   const updateSW = registerSW({
-    immediate: true,
     onOfflineReady() {
       setOfflineReady(true)
     }
