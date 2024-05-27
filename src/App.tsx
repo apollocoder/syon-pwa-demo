@@ -1,8 +1,14 @@
+import { useEffect } from 'react'
 import classes from './App.module.css'
 import { ScanButton } from './components/ScanButton'
 import { ShareButton } from './components/ShareButton'
+import runOneSignal from './one-signal'
 
 function App() {
+  useEffect(() => {
+    runOneSignal()
+  }, [])
+
   return (
     <div className={classes.app}>
       <img src="/syon.png" alt="SYON" className={classes.logo} />

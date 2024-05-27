@@ -5,23 +5,6 @@
     <link rel="icon" type="image/png" href="/syon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SYON PWA</title>
-    <script
-      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
-      defer
-    ></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || []
-      OneSignalDeferred.push(function (OneSignal) {
-        OneSignal.init({
-          appId: 'e9f9b4b7-da07-4c2e-a74c-4c9072ac63d3',
-          notifyButton: {
-            enable: true
-          },
-          serviceWorkerParam: { scope: '/onesignal/onsSignalScope/' },
-          serviceWorkerPath: 'onesignal/OneSignalSDKWorker.js'
-        })
-      })
-    </script>
   </head>
   <body>
     <div id="root"></div>

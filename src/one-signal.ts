@@ -1,15 +1,17 @@
 import OneSignal from 'react-onesignal'
 
-export default async function runOneSignal(email?: string) {
-  await OneSignal.init({
-    appId: 'e9f9b4b7-da07-4c2e-a74c-4c9072ac63d3',
-    allowLocalhostAsSecureOrigin: true,
-    serviceWorkerParam: { scope: '/one-signal' }
+export default async function runOneSignal() {
+  OneSignal.Notifications.addEventListener('click', event => {
+    console.log('OneSignal notification displayed:', event)
   })
 
-  OneSignal.login('tobi.buechel@gmail.com')
-
-  console.log('subscribing to one signal', email)
-
-  await OneSignal.Slidedown.promptPush()
+  await OneSignal.init({
+    appId: 'e9f9b4b7-da07-4c2e-a74c-4c9072ac63d3',
+    serviceWorkerParam: { scope: '/onesignal/onsSignalScope/' },
+    serviceWorkerPath: 'onesignal/OneSignalSDKWorker.js',
+    allowLocalhostAsSecureOrigin: true,
+    notifyButton: {
+      enable: true
+    }
+  })
 }
