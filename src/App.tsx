@@ -16,7 +16,9 @@ function App() {
     <div className={classes.app}>
       <h1 className={classes.title}>PWA Demo</h1>
       {offlineReady && (
-        <button onClick={() => updateSW(true)}>Offline Ready, Update!</button>
+        <button className="button" onClick={() => updateSW()}>
+          Offline Ready, Update!
+        </button>
       )}
       <img src="/syon.png" alt="SYON" className={classes.logo} />
       <PaymentButton />
