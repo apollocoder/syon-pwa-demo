@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import classes from './ShareButton.module.css'
 
 export const PaymentButton = () => {
   const ref = useRef<HTMLInputElement>(null)
@@ -27,7 +28,7 @@ export const PaymentButton = () => {
   }
 
   return (
-    <div>
+    <div className={classes.container}>
       <h2>Share a File</h2>
       <input
         ref={ref}

@@ -20,13 +20,14 @@ function App() {
 
   return (
     <div className={classes.app}>
-      <h1 className={classes.title}>SYON PWA Demo</h1>
+      <img src="/syon.png" alt="SYON" className={classes.logo} />
+      <h1 className={classes.title}>SYON</h1>
+      <h2 className={classes.subTitle}>PWA Demo</h2>
       {needRefresh && (
         <button className="button" onClick={() => updateServiceWorker()}>
           Update App
         </button>
       )}
-      <img src="/syon.png" alt="SYON" className={classes.logo} />
       {offlineReady && <div>Offline Ready</div>}
       <PaymentButton />
     </div>
