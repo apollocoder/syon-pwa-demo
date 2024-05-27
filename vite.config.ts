@@ -17,11 +17,11 @@ export default defineConfig({
         short_name: 'SYON',
         start_url: '/',
         display: 'standalone',
-        background_color: '#1a1a1a',
+        background_color: '#242424',
         lang: 'en',
         scope: '/',
         description: 'SYON PWA Demo',
-        theme_color: '#ffffff',
+        theme_color: '#068b9a',
         orientation: 'portrait',
         icons: [
           {
