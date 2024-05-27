@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import classes from './ShareButton.module.css'
 
-export const PaymentButton = () => {
+export const ShareButton = () => {
   const ref = useRef<HTMLInputElement>(null)
   const [file, setFile] = useState<File | null>(null)
 
