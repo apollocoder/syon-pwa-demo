@@ -25,11 +25,6 @@ export default defineConfig({
         orientation: 'portrait',
         icons: [
           {
-            src: 'syon.png',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
             src: 'windows11/SmallTile.scale-100.png',
             sizes: '71x71'
           },
@@ -351,33 +346,57 @@ export default defineConfig({
           },
           {
             src: 'android/android-launchericon-512-512.png',
-            sizes: '512x512',
-            purpose: 'maskable any'
+            sizes: '512x512'
           },
           {
             src: 'android/android-launchericon-192-192.png',
-            sizes: '192x192',
-            purpose: 'maskable any'
+            sizes: '192x192'
           },
           {
             src: 'android/android-launchericon-144-144.png',
-            sizes: '144x144',
-            purpose: 'maskable any'
+            sizes: '144x144'
           },
           {
             src: 'android/android-launchericon-96-96.png',
-            sizes: '96x96',
-            purpose: 'maskable any'
+            sizes: '96x96'
           },
           {
             src: 'android/android-launchericon-72-72.png',
-            sizes: '72x72',
-            purpose: 'maskable any'
+            sizes: '72x72'
           },
           {
             src: 'android/android-launchericon-48-48.png',
+            sizes: '48x48'
+          },
+          {
+            src: 'maskable/android-launchericon-512-512.png',
+            sizes: '512x512',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable/android-launchericon-192-192.png',
+            sizes: '192x192',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable/android-launchericon-144-144.png',
+            sizes: '144x144',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable/android-launchericon-96-96.png',
+            sizes: '96x96',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable/android-launchericon-72-72.png',
+            sizes: '72x72',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable/android-launchericon-48-48.png',
             sizes: '48x48',
-            purpose: 'maskable any'
+            purpose: 'maskable'
           },
           {
             src: 'ios/16.png',
