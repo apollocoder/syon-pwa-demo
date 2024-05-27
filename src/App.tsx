@@ -3,17 +3,36 @@ import classes from './App.module.css'
 import { PaymentButton } from './components/ShareButton'
 import { useState } from 'react'
 
+const intervalMS = 10 * 1000
+
 function App() {
   const [offlineReady, setOfflineReady] = useState(false)
   const [needRefresh, setNeedRefresh] = useState(false)
 
-  registerSW({
-    immediate: true,
-    onNeedRefresh: () => {
+  const update = registerSW({
+    onNeedRefresh() {
       setNeedRefresh(true)
     },
-    onOfflineReady: () => {
+    onOfflineReady() {
       setOfflineReady(true)
+    },
+    onRegisteredSW(swUrl, registration) {
+      registration &&
+        setInterval(async () => {
+          if (!(!registration.installing && navigator)) return
+
+          if ('connection' in navigator && !navigator.onLine) return
+
+          const resp = await fetch(swUrl, {
+            cache: 'no-store',
+            headers: {
+              cache: 'no-store',
+              'cache-control': 'no-cache'
+            }
+          })
+
+          if (resp?.status === 200) await registration.update()
+        }, intervalMS)
     }
   })
 
@@ -21,7 +40,7 @@ function App() {
     <div className={classes.app}>
       <h1 className={classes.title}>SYON PWA Demo</h1>
       {needRefresh && (
-        <button className="button" onClick={() => window.location.reload()}>
+        <button className="button" onClick={() => update()}>
           Update App
         </button>
       )}
