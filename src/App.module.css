@@ -5,12 +5,12 @@
 }
 
 .title {
-  font-size: 3em;
   margin: 2rem 0 0 0;
 }
 
 .subTitle {
   margin: 0 0 2rem 0;
+  opacity: 0.5;
 }
 
 .logo {
