@@ -5,6 +5,10 @@
   gap: 1em;
 }
 
+.title {
+  margin: 1em 0 0 0;
+}
+
 .logo {
   width: 200px;
   max-width: 50%;

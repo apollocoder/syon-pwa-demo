@@ -12,6 +12,9 @@ export default defineConfig({
       devOptions: { enabled: true },
       registerType: 'autoUpdate',
       includeAssets: ['/syon.png'],
+      workbox: {
+        cleanupOutdatedCaches: true
+      },
       manifest: {
         name: 'SYON PWA',
         short_name: 'SYON',
