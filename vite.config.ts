@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     basicSsl(),
     VitePWA({
-      devOptions: { enabled: false },
+      devOptions: { enabled: true },
       registerType: 'prompt',
       includeAssets: ['/vite.svg'],
       manifest: {
