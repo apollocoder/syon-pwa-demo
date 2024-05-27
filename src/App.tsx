@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import './App.css'
 import { PaymentButton } from './components/ContactButton'
+import classes from './App.module.css'
 
 function App() {
   useEffect(() => {
@@ -8,9 +8,10 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div className={classes.app}>
+      <img src="/syon.png" alt="SYON" className={classes.logo} />
       <PaymentButton />
-    </>
+    </div>
   )
 }
 
