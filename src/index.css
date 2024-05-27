@@ -1,7 +1,8 @@
-.titillium-web-light {
-  font-family: 'Titillium Web', sans-serif;
+@font-face {
+  font-family: 'Titillium Web';
   font-weight: 300;
   font-style: normal;
+  src: url('/fonts/TitilliumWeb-Light.ttf') format('truetype');
 }
 
 :root {

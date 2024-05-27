@@ -11,7 +11,7 @@ export default defineConfig({
     VitePWA({
       devOptions: { enabled: true },
       registerType: 'prompt',
-      includeAssets: ['/syon.png'],
+      includeAssets: ['/syon.png', '/fonts/TitilliumWeb-Light.ttf'],
       manifest: {
         name: 'SYON PWA',
         short_name: 'SYON',

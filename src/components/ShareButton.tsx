@@ -27,7 +27,8 @@ export const PaymentButton = () => {
   }
 
   return (
-    <>
+    <div>
+      <h2>Share a File</h2>
       <input
         ref={ref}
         type="file"
@@ -43,6 +44,6 @@ export const PaymentButton = () => {
           Select File
         </button>
       )}
-    </>
+    </div>
   )
 }
