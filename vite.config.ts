@@ -10,14 +10,14 @@ export default defineConfig({
     basicSsl(),
     VitePWA({
       devOptions: { enabled: true },
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       includeAssets: ['/syon.png'],
       manifest: {
         name: 'SYON PWA',
         short_name: 'SYON',
         start_url: '/',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#242424',
         lang: 'en',
         scope: '/',
         description: 'SYON PWA Demo',
