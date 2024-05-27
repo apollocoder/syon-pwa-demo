@@ -6,13 +6,10 @@ const intervalMS = 10 * 1000
 
 function App() {
   const { needRefresh, offlineReady, updateServiceWorker } = useRegisterSW({
-    onRegisteredSW(swUrl, registration) {
+    onRegistered(registration) {
       registration &&
-        setInterval(async () => {
-          if (!(!registration.installing && navigator)) return
-          if ('connection' in navigator && !navigator.onLine) return
-          const resp = await fetch(swUrl)
-          if (resp?.status === 200) await registration.update()
+        setInterval(() => {
+          registration.update()
         }, intervalMS)
     }
   })
