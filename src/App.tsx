@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { PaymentButton } from './components/ContactButton'
+import { PaymentButton } from './components/ShareButton'
 import classes from './App.module.css'
 
 function App() {
