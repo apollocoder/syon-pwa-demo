@@ -27,7 +27,7 @@ function App() {
         </button>
       )}
       <img src="/syon.png" alt="SYON" className={classes.logo} />
-      {!offlineReady && <div>Offline Ready</div>}
+      {offlineReady && <div>Offline Ready</div>}
       <PaymentButton />
     </div>
   )
