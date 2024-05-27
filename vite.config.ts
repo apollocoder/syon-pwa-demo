@@ -25,6 +25,11 @@ export default defineConfig({
         orientation: 'portrait',
         icons: [
           {
+            src: 'syon.png',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
             src: 'windows11/SmallTile.scale-100.png',
             sizes: '71x71'
           },
