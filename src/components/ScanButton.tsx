@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, useState } from 'react'
-import classes from './ShareButton.module.css'
+import classes from './ScanButton.module.css'
 
 declare let NDEFReader: any
 
