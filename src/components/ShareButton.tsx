@@ -37,7 +37,7 @@ export const PaymentButton = () => {
       />
       {file ? (
         <button className="button" onClick={shareFile}>
-          Share File
+          Share {file.name}
         </button>
       ) : (
         <button className="button" onClick={openFileSelect}>
