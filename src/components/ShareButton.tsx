@@ -20,7 +20,9 @@ export const PaymentButton = () => {
         files: [file]
       })
     } catch (e) {
-      alert('Share API not available')
+      console.log(e)
+    } finally {
+      setFile(null)
     }
   }
 
@@ -32,12 +34,15 @@ export const PaymentButton = () => {
         style={{ display: 'none' }}
         onChange={saveFile}
       />
-      <button className="button" onClick={openFileSelect}>
-        Select File
-      </button>
-      <button className="button" onClick={shareFile}>
-        Share File
-      </button>
+      {file ? (
+        <button className="button" onClick={shareFile}>
+          Share File
+        </button>
+      ) : (
+        <button className="button" onClick={openFileSelect}>
+          Select File
+        </button>
+      )}
     </>
   )
 }

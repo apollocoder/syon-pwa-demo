@@ -10,7 +10,7 @@ export default defineConfig({
     basicSsl(),
     VitePWA({
       devOptions: { enabled: true },
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       includeAssets: ['/syon.png'],
       manifest: {
         name: 'SYON PWA',
