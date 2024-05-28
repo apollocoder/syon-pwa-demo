@@ -10,6 +10,11 @@ export const ScanButton = () => {
   const [result, setResult] = useState<unknown | null>(null)
   const [error, setError] = useState<unknown | null>(null)
 
+  const utter = (string: string) => {
+    const utterance = new SpeechSynthesisUtterance(string)
+    speechSynthesis.speak(utterance)
+  }
+
   const readTag = ({ message }: any) => {
     const { records } = message
 
@@ -21,8 +26,8 @@ export const ScanButton = () => {
       })
       .join(' ')
 
-    stopScanning()
     setResult(decoded)
+    utter(decoded)
   }
 
   const startScanning = () =>

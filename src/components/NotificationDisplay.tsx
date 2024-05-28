@@ -9,7 +9,7 @@ export const NotificationDisplay = () => {
     OneSignal.Notifications.addEventListener('click', ({ notification }) => {
       setMessage(`${notification.title}: ${notification.body}`)
     })
-  })
+  }, [])
 
   return (
     message && (
