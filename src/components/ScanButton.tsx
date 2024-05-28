@@ -73,6 +73,7 @@ export const ScanButton = () => {
   return (
     <div className={classes.container}>
       <h2>Scan NFC</h2>
+      <div>Turn on volume!</div>
       {'NDEFReader' in window ? (
         <>
           <button
@@ -89,7 +90,7 @@ export const ScanButton = () => {
           )}
         </>
       ) : (
-        <div>NFC not supported by this device</div>
+        <div>NFC not supported on this device</div>
       )}
     </div>
   )
