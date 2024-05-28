@@ -21,7 +21,7 @@ export const ShareButton = () => {
         files: [file]
       })
     } catch (e) {
-      console.log(e)
+      console.error(e)
     } finally {
       setFile(null)
     }

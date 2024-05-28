@@ -18,8 +18,6 @@ function App() {
         <h1 className={classes.title}>SYON</h1>
         <h2 className={classes.subTitle}>PWA Demo</h2>
       </div>
-      <div>Path: {window.location.pathname}</div>
-      <div>Search: {window.location.search}</div>
       <OnlineState />
       <NotificationDisplay />
       <ShareButton />
