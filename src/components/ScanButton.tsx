@@ -12,6 +12,7 @@ export const ScanButton = () => {
 
   const utter = (string: string) => {
     const utterance = new SpeechSynthesisUtterance(string)
+    utterance.lang = 'en-US'
     speechSynthesis.speak(utterance)
   }
 
