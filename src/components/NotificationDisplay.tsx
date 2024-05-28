@@ -9,7 +9,6 @@ export const NotificationDisplay = () => {
     const searchParams = new URLSearchParams(search)
     if (searchParams.has('notification'))
       setMessage(searchParams.get('notification'))
-    else setMessage(null)
   }, [])
 
   useEffect(() => {
