@@ -22,6 +22,17 @@ export const NotificationDisplay = () => {
     }
   }, [handleLocationChange])
 
+  useEffect(() => {
+    const cry = (event: Event) => {
+      event.preventDefault()
+      alert('😭')
+    }
+    window.addEventListener('notificationclick', cry)
+    return () => {
+      window.removeEventListener('notificationclick', cry)
+    }
+  }, [])
+
   return (
     message && (
       <div className={classes.container}>
