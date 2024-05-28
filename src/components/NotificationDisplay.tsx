@@ -1,15 +1,27 @@
-import { useEffect, useState } from 'react'
-import OneSignal from 'react-onesignal'
+import { useCallback, useEffect, useState } from 'react'
 import classes from './NotificationDisplay.module.css'
 
 export const NotificationDisplay = () => {
   const [message, setMessage] = useState<string | null>(null)
 
-  useEffect(() => {
-    OneSignal.Notifications.addEventListener('click', ({ notification }) => {
-      setMessage(`${notification.title}: ${notification.body}`)
-    })
+  const handleLocationChange = useCallback(() => {
+    const { search } = window.location
+    const searchParams = new URLSearchParams(search)
+    if (searchParams.has('notification'))
+      setMessage(searchParams.get('notification'))
+    else setMessage(null)
   }, [])
+
+  useEffect(() => {
+    handleLocationChange()
+  }, [handleLocationChange])
+
+  useEffect(() => {
+    window.addEventListener('popstate', handleLocationChange)
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange)
+    }
+  }, [handleLocationChange])
 
   return (
     message && (
