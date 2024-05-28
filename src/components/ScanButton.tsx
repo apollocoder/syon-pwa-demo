@@ -8,7 +8,6 @@ export const ScanButton = () => {
   const abortController = useRef<AbortController | null>(null)
   const [scanning, setScanning] = useState(false)
   const [result, setResult] = useState<unknown | null>(null)
-  const [error, setError] = useState<unknown | null>(null)
 
   const utter = (string: string) => {
     const utterance = new SpeechSynthesisUtterance(string)
@@ -44,14 +43,14 @@ export const ScanButton = () => {
         })
 
         reader.addEventListener('readingerror', (event: unknown) => {
-          setError(event)
+          console.error(event)
           reject(event)
         })
 
         abortController.current = new AbortController()
         reader.scan({ signal: abortController.current.signal })
       } catch (error) {
-        setError(error)
+        console.error(error)
         stopScanning()
         reject(error)
       }
@@ -60,7 +59,7 @@ export const ScanButton = () => {
   const stopScanning = () => {
     abortController.current?.abort()
     setResult(null)
-    setError(null)
+    console.error(null)
     setScanning(false)
   }
 
@@ -73,21 +72,16 @@ export const ScanButton = () => {
   return (
     <div className={classes.container}>
       <h2>Scan NFC</h2>
-      <div>Turn on volume!</div>
       {'NDEFReader' in window ? (
         <>
+          <div className={classes.hint}>Turn on volume and scan a badge!</div>
           <button
-            className="button"
+            className={`button ${scanning ? classes.running : ''}`}
             onClick={scanning ? stopScanning : startScanning}
           >
             {scanning ? 'Stop Scanning' : 'Start Scanning'}
           </button>
           {message && <div className={classes.output}>{message}</div>}
-          {error && (
-            <pre className={classes.output}>
-              Error: {JSON.stringify(error, undefined, 2)}
-            </pre>
-          )}
         </>
       ) : (
         <div>NFC not supported on this device</div>
